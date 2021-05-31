@@ -1,4 +1,4 @@
-const client = require('discord-rich-presence')('id');
+const client = require('discord-rich-presence')('795952530735104010');
 
 client.updatePresence({
 
