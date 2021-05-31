@@ -1,11 +1,12 @@
 const DiscordRPC = require('discord-rpc');
 const config = require('./config.json');
-const rpc = new DiscordRPC.Client({
-	transport: 'ipc'
-	
+
 
 	
-});
+const browser = typeof window !== 'undefined';
+const rpc = new DiscordRPC.Client({ transport: browser ? "websocket" : "ipc"});
+	
+
 rpc.config = config;
 
 //Creating a start- and endTimestamp for the initial timer
