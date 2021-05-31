@@ -1,39 +1,19 @@
-const RPC = require('discord-rpc')
+const client = require('discord-rich-presence')('id');
 
-const rpc = new RPC.Client({
+client.updatePresence({
 
-    transport: 'ipc'
+  details: "First line",
 
-})
+  state: "Second line",
 
-rpc.on("ready", () => {
+  largeImageKey: 'largeimage',
 
-    rpc.setActivity({
+  largeImageText: "Large Image Hover Text",
 
-        details: "200 Subscribers Road",
+  smallImageKey: 'smallimage',
 
-        state: "Creating Discord bots",
+  smallImageText: "Small Image Hover Text",
 
-        startTimestamp: new Date(),
+  instance: true,
 
-        largeImageKey: "small",
-
-        largeImageText: "Sub 2 UltraX",
-
-        smallImageKey: "small",
-
-        smallImageText: "Road to 200 subs",
-
-        buttons : [{label : "Subscribe" , url : "https://youtube.com/c/UltraX1"},{label : "Discord" , url : "https://discord.gg/7kMWXGTxCD"}]
-
-    })
-
-    console.log("successfully activated the RPC")
-
-})
-
-rpc.login({
-
-    clientId: '795952530735104010'
-
-})
+});
