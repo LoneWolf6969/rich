@@ -16,7 +16,7 @@ rpc.on("ready", () => {
 
         startTimestamp: new Date(),
 
-        largeImageKey: "large",
+        largeImageKey: "small",
 
         largeImageText: "Sub 2 UltraX",
 
