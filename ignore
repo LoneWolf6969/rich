@@ -1,0 +1,17 @@
+import base64
+
+API_ENDPOINT = 'https://discord.com/api/v6'
+CLIENT_ID = '848179166309646349'
+CLIENT_SECRET = 'SzaFW7b8mirEweHkrI1aGfVTeSJkThM2'
+
+def get_token():
+  data = {
+    'grant_type': 'client_credentials',
+    'scope': 'identify connections'
+  }
+  headers = {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  }
+  r = requests.post('%s/oauth2/token' % API_ENDPOINT, data=data, headers=headers, auth=(CLIENT_ID, CLIENT_SECRET))
+  r.raise_for_status()
+  return r.json()

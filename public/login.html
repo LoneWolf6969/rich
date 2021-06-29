@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Wumpus Land Government">
+    <meta name="keywords" content="wumpus, wumpusland, land, discord, server, community, bots, wumpus land">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+
+        <meta content="Wumpus Land" property="og:title" />
+    <meta content="The one and only Wumpus Land Discord Server" property="og:description" />
+    <meta content="wumpus.land" property="og:url" />
+    <meta content="https://cdn.discordapp.com/attachments/850619976020000809/857932267031494666/WumpusLand.png" property="og:image" />
+    <meta content="#5865f2" data-react-helmet="true" name="theme-color" />
+
+
+    <title>Wumpus Land</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/owl-carousel.css">
+
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+
+
+    </head>
+
+  <body>
+    <body>
+	<div id="info">
+		Hello Wumpus Land Inhabitant, inorder to use the dashboard you need to login!
+	</div>
+
+  <a id="login" style="display: none;" href="https://discord.com/api/oauth2/authorize?client_id=848179166309646349&redirect_uri=https%3A%2F%2Fwumpus.land%2Fdashboard&response_type=code&scope=identify%20email"><i class="material-icons">login</i> Login
+</a>
+<script>
+	window.onload = () => {
+		const fragment = new URLSearchParams(window.location.hash.slice(1));
+		const [accessToken, tokenType] = [fragment.get('access_token'), fragment.get('token_type')];
+
+		if (!accessToken) {
+			return document.getElementById('login').style.display = 'block';
+		}
+
+		fetch('https://discord.com/api/users/@me', {
+			headers: {
+				authorization: `${tokenType} ${accessToken}`,
+			},
+		})
+			.then(result => result.json())
+			.then(response => {
+				const { username, discriminator } = response;
+				document.getElementById('info').innerText += ` ${username}#${discriminator}`;
+			})
+			.catch(console.error)
+      
+	};
+</script>
+
+
+  </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!---
+  <script>
+    function sendMessage() {
+      var request = new XMLHttpRequest();
+      request.open("POST", "https://discord.com/api/webhooks/859036056683020329/cRqWsnJ0gFe6Exe-FinrMFlw9W5vNfufwQ43UqEX0eMXYAbHi_F9JBsbjIYOamiNrxO6");
+
+      request.setRequestHeader('Content-type', 'application/json');
+
+      var params = {
+        username: "Website-Api",
+        avatar_url: "https://i1.sndcdn.com/artworks-XllqaaNN0Hyi5p4s-n08qgA-t500x500.jpg",
+        content: "Successfull conection between Website And Discord!"
+      }
+
+      request.send(JSON.stringify(params));
+    }
+  </script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  input[type=text], select, textarea {
+  width: 100%; 
+  padding: 12px;  
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+  margin-top: 6px; 
+  margin-bottom: 16px; 
+  resize: vertical 
+}
+
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+  </style>
